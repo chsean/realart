@@ -6,11 +6,16 @@
 	body {
 		margin-top: 20px;
 		margin-bottom: 20px;
+
 	}
 	#art{
+		margin: auto;
 		border: 5px solid grey;
 		border-radius: 50px;
+		width: 80%;
 		height: 600px;
+		position: absolute;
+		overflow: hidden;
 
 	}
 	/*img{
@@ -38,7 +43,7 @@
 				<a href="javascript:refreshCovers(-8)">show previous</a> | <a href="javascript:refreshCovers(8)">load more</a>
 			</div>
 	</div>
-	<div id="art" class="row" >
+	<div id="art" class="row">
 			<img id="0" width="150px" name="0">	
 			<img id="1" width="150px" name="1">
 			<img id="2" width="150px" name="2" >
@@ -47,6 +52,8 @@
 			<img id="5" width="150px" name="5">
 			<img id="6" width="150px" name="6">
 			<img id="7" width="150px" name="7">
+			<img id="8" width="150px" name="8">
+			<img id="9" width="150px" name="9">
 		</div>
 	</div>
 </div>
@@ -66,21 +73,21 @@ function randomizeImage(id){
 	var image = document.getElementById(id);
 	if(image && image.style) {
     	image.style.height = getRandomInt(100,1000);
-    	image.style.width = getRandomInt(300,1400);
-    	var topLimit = 300;
+    	image.style.width = getRandomInt(200,1200);
+    	var topLimit = 200;
     	if (image.style.height>500){
     		topLimit = 100;
     	}
     	image.style.opacity = getRandomInt(.75,1);
     	image.style.position = "absolute";
-    	image.style.top = getRandomInt(0,topLimit);
-    	image.style.left = getRandomInt(0,500);
+    	image.style.top = getRandomInt(-150,topLimit);
+    	image.style.left = getRandomInt(-300,500);
 
 	}
 }
 
 function resizeAll(){
-	for(i=0;i<8;i++)
+	for(i=0;i<10;i++)
 	randomizeImage(i);
 }
 var lastQueriedName;
@@ -128,7 +135,7 @@ function queryGoogleForPictures(bookName, position) {
 			if (response.responseData === null) {
 				alert('Sorry no more results!');
 			} else {
-				for (i = 0; i <= 8; i++) {
+				for (i = 0; i <= 9; i++) {
 					$("#"+i).attr("src", response.responseData.results[i].unescapedUrl);
 				}
 			}
