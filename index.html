@@ -16,7 +16,8 @@
 		height: 600px;
 		position: absolute;
 		overflow: hidden;
-
+		background-repeat: repeat;
+		background-image:url("http://ecx.images-amazon.com/images/I/51XR3M4I5UL._BO2,204,203,200_PIsitb-sticker-v3-big,TopRight,0,-55_SX278_SY278_PIkin4,BottomRight,1,22_AA300_SH20_OU01_.jpg");
 	}
 	/*img{
     position: relative;
@@ -52,8 +53,7 @@
 			<img id="5" width="150px" name="5">
 			<img id="6" width="150px" name="6">
 			<img id="7" width="150px" name="7">
-			<img id="8" width="150px" name="8">
-			<img id="9" width="150px" name="9">
+			<img id="7" width="150px" name="7">
 		</div>
 	</div>
 </div>
@@ -124,20 +124,23 @@ function queryGoogleForPictures(bookName, position) {
 		url: 'https://ajax.googleapis.com/ajax/services/search/images',
 		dataType: "jsonp",
 		data: {
+			as_filetype: "gif",
+			safe: "off",
 			v: "1.0",
 			rsz: 8,
 			hl: "pl",
+			imgsz:"small",
 			start: position,
 			q: bookName,
-			imgsz: "small"
 		},
 		success: function(response) {
 			if (response.responseData === null) {
 				alert('Sorry no more results!');
 			} else {
-				for (i = 0; i <= 9; i++) {
+				for (i = 0; i <= 7; i++) {
 					$("#"+i).attr("src", response.responseData.results[i].unescapedUrl);
 				}
+				$("#art").attr("style", "background-image:url(\"" + response.responseData.results[0].unescapedUrl + "\"); background-repeat: repeat;");
 			}
 		}
 	});
