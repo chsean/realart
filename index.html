@@ -13,11 +13,11 @@
 		margin-bottom: 20px;
 	}
 	#art{
-		margin: 0 auto;
+
 		border: 5px solid white;
 		border-radius: 50px;
-		width: 80%;
-		height: 80%;
+		width: 85%;
+		height: 85%;
 		position: absolute;
 		overflow: hidden;
 		background-repeat: repeat;
@@ -113,28 +113,29 @@
 
 <div class="container">
 	<div class="row" id="inputs">
-			<div class="col-md-4  text-right">
+			<div class="col-xs-3 col-md-4  text-right">
 				<a type="button" class="btn btn-default btn-lg hvr-back-pulse" href="javascript:refreshCovers(-8)">
  				 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> prev
 				</a>
 			</div>
-			<div class="col-md-4 text-center">
+			<div class="col-xs-6 col-md-4 text-center">
 
 				<input id="box" class="form-control input-lg mrgn-bttm-md text-center" type="text" name="bookName">
 
 			</div>
 
-			<div class="col-md-2  text-left">
+			<div class="col-xs-2 col-md-2  text-left">
 				<a type="button" class="btn btn-default btn-lg hvr-back-pulse" href="javascript:refreshCovers(8)">
 					next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 				</a>
 			</div>
-						<div class="col-md-1 text-right">
+						<div class="col-xs-1 col-md-2 text-center">
 				<button id="obnoxious" class="btn btn-default btn-lg hvr-border-fade">obnoxious</button>
 				</div>
 
 	</div>
 	<div id="art" class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 			<img id="0" width="150px" name="0">	
 			<img id="1" width="150px" name="1">
 			<img id="2" width="150px" name="2" >
@@ -145,6 +146,7 @@
 			<img id="7" width="150px" name="7">
 			<img id="7" width="150px" name="7">
 		</div>
+  </div>
 	</div>
 </div>
 
