@@ -43,6 +43,10 @@
     	  outline: none;
     	  box-shadow: 0 0 8px #428bca;
   		-webkit-animation: fade 2s infinite alternate;
+      -moz-animation: fade 2s infinite alternate;
+      -o-animation: fade 2s infinite alternate;
+      -ms-transition: fade 2s infinite alternate;
+      animation: fade 2s infinite alternate;
 
 	}
 @-webkit-keyframes hvr-back-pulse {
@@ -183,20 +187,20 @@ function randomizeImage(id){
 	var image = document.getElementById(id);
 	if(image && image.style) {
 		if (id==7){
-    	image.style.height = getRandomInt(screenHeight/2,screenHeight*.75);
-    	image.style.width = getRandomInt(screenWidth/2,screenWidth*.75);
+    	image.style.height = getRandomInt(screenHeight,screenHeight*1.25);
+    	image.style.width = getRandomInt(screenWidth,screenWidth*1.25);
 		} else{
-    	image.style.height = getRandomInt(screenHeight/10,1.1*screenHeight);
-    	image.style.width = getRandomInt(screenWidth/10,screenWidth*1.1);
+    	image.style.height = getRandomInt(screenHeight/10,1.5*screenHeight);
+    	image.style.width = getRandomInt(screenWidth/10,screenWidth*1.5);
 		}
-    	var topLimit = screenHeight/2;
-    	var leftLimit = screenWidth/2;
+    	var topLimit = screenHeight*.75;
+    	var leftLimit = screenWidth*.75;
       var opaque = getRandomInt(.75,1);
     	if (image.style.height>topLimit){
-    		topLimit = getRandomInt(screenHeight/20, screenHeight/2);
+    		topLimit = screenHeight/2;
     	}
     	if (image.style.width>leftLimit){
-    		leftLimit = getRandomInt(screenWidth/20, screenWidth/2);
+    		leftLimit =  screenWidth/2;
     	}
       if (id==7){
         topLimit = screenHeight/10;
