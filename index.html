@@ -178,27 +178,35 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 function randomizeImage(id){
+  var screenWidth = window.screen.width;
+  var screenHeight = window.screen.height;
 	var image = document.getElementById(id);
 	if(image && image.style) {
 		if (id==7){
-    	image.style.height = getRandomInt(400,1000);
-    	image.style.width = getRandomInt(500,1200);
+    	image.style.height = getRandomInt(screenHeight/2,screenHeight*.75);
+    	image.style.width = getRandomInt(screenWidth/2,screenWidth*.75);
 		} else{
-    	image.style.height = getRandomInt(100,1000);
-    	image.style.width = getRandomInt(200,1200);
+    	image.style.height = getRandomInt(screenHeight/10,1.1*screenHeight);
+    	image.style.width = getRandomInt(screenWidth/10,screenWidth*1.1);
 		}
-    	var topLimit = 200;
-    	var leftLimit = 500;
-    	if (image.style.height>500){
-    		topLimit = 100;
+    	var topLimit = screenHeight/2;
+    	var leftLimit = screenWidth/2;
+      var opaque = getRandomInt(.75,1);
+    	if (image.style.height>topLimit){
+    		topLimit = getRandomInt(screenHeight/20, screenHeight/2);
     	}
-    	if (image.style.width>600){
-    		leftLimit = 300;
+    	if (image.style.width>leftLimit){
+    		leftLimit = getRandomInt(screenWidth/20, screenWidth/2);
     	}
-    	image.style.opacity = getRandomInt(.75,1);
+      if (id==7){
+        topLimit = screenHeight/10;
+        leftLimit = screenWidth/10;
+        opaque = .5;
+      }
+    	image.style.opacity = opaque;
     	image.style.position = "absolute";
-    	image.style.top = getRandomInt(-150,topLimit);
-    	image.style.left = getRandomInt(-300,leftLimit);
+    	image.style.top = getRandomInt(-screenHeight/6,topLimit);
+    	image.style.left = getRandomInt(-screenWidth/6,leftLimit);
 
 	}
 }
